@@ -600,6 +600,7 @@ public class FloatingActionMenu extends ViewGroup {
             label.setTypeface(mCustomTypefaceFromFont);
         }
         label.setText(text);
+        label.setId(fab.getId());
         label.setOnClickListener(fab.getOnClickListener());
 
         addView(label);

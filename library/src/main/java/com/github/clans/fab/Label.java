@@ -19,6 +19,7 @@ import android.graphics.drawable.StateListDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.os.Build;
 import android.util.AttributeSet;
+
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -293,7 +294,6 @@ public class Label extends TextView {
                 onActionUp();
                 mFab.onActionUp();
                 break;
-
             case MotionEvent.ACTION_CANCEL:
                 onActionUp();
                 mFab.onActionUp();
@@ -301,8 +301,6 @@ public class Label extends TextView {
         }
 
         mGestureDetector.onTouchEvent(event);
-
-        mFab.callOnClick();
 
         return super.onTouchEvent(event);
     }
