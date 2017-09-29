@@ -82,7 +82,9 @@ public class FloatingActionMenu extends ViewGroup {
     private int mMenuColorPressed;
     private int mMenuColorRipple;
     private Drawable mOpenIcon; // Netscout change: can now be set at runtime, and open & close icons replace single (rotating) toggle icon
+    private int mOpenIconResId; // Netscout change: Automation needs a unique ID for the button
     private Drawable mCloseIcon; // Netscout change: use this instead of the rotated mIcon.
+    private int mCloseIconResId; // Netscout change: Automation needs a unique ID for the button
     private int mAnimationDelayPerItem = DEFAULT_ANIMATION_DELAY_PER_ITEM; // Netscout addition: default value
     private Interpolator mOpenInterpolator;
     private Interpolator mCloseInterpolator;
@@ -280,9 +282,11 @@ public class FloatingActionMenu extends ViewGroup {
 
         mImageOpenButton = new ImageView(getContext());
         mImageOpenButton.setImageDrawable(mOpenIcon);
+        mImageOpenButton.setId(mOpenIconResId);
 
         mImageCloseButton = new ImageView(getContext());
         mImageCloseButton.setImageDrawable(mCloseIcon);
+        mImageCloseButton.setId(mCloseIconResId);
 
         addView(mMenuButton, super.generateDefaultLayoutParams());
 
@@ -1152,15 +1156,19 @@ public class FloatingActionMenu extends ViewGroup {
     }
 
     // Netscout addition
-    public void setOpenIcon(Drawable icon) {
+    public void setOpenIcon(Drawable icon, int resId) {
         mOpenIcon = icon;
+        mOpenIconResId = resId;
         mImageOpenButton.setImageDrawable(mOpenIcon);
+        mImageOpenButton.setId(mOpenIconResId);
     }
 
     // Netscout addition
-    public void setCloseIcon(Drawable icon) {
+    public void setCloseIcon(Drawable icon, int resId) {
         mCloseIcon = icon;
+        mCloseIconResId = resId;
         mImageCloseButton.setImageDrawable(mCloseIcon);
+        mImageCloseButton.setId(mCloseIconResId);
     }
 
     public ImageView getOpenButton() {
