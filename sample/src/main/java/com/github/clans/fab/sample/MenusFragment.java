@@ -143,7 +143,7 @@ public class MenusFragment extends Fragment {
             menuFabPrimaryMenu.addMenuButton(fab);
         }
 
-        menuFabPrimaryMenu.setOpenIcon(getContext().getDrawable(R.drawable.ic_star));
+        menuFabPrimaryMenu.setOpenIcon(getContext().getDrawable(R.drawable.ic_star), 0);
 
         menuFabPrimaryMenu.setVisibility(View.VISIBLE);
 
